@@ -1,0 +1,178 @@
+Git Essentials:
+    Video 3:
+    - See status: git status
+    - Stage changed files: git add -A
+    - Commit: git commit -m 'Message content'
+    - Get the saved version of last checkin: git checkout -- .
+    - Push: git push origin master
+    - Pull: git pull origin master
+    Video 4:
+    - Git site: git-scm.com
+    - See version: git --version
+    - Config user name: git config --global user.name "Brad"
+    - Config email: git config --global user.email "youremail@address.com"
+    - Work with /hello-world in /sites:
+        mkdir sites
+        cd sites
+        mkdir hello-world
+        cd hello-world
+        git init
+        =>Initialized empty Git repository in D:/Projects/modern workflow/sites/hello-world/.git/
+        touch index.html    (create a new html file)
+        git status  (see the status)
+        git add index.html  (stage the html file)
+        git status
+        git commit -m "My first commit" (Use ' instead of " and it will not work in Cmder)
+        Now, delete the html file permanently and recover it with: git checkout -- .
+        Now move to the /sites folder: cd ..
+        Clone from github: git clone https://github.com/LearnWebCode/welcome-to-git.git
+    Video 5:
+    - Create a github repo named travel-site
+    - In the command line window, move to the /sites folder and clone:
+        + git clone https://github.com/LearnWebCode/travel-site-files.git
+        + There is a new folder named travel-site-files in /sites, rename it to travel-site
+    - Move into the /travel-site child folder: cd travel-site
+    - Reset the url: git remote set-url origin https://github.com/nxde/travel-site.git
+    - git remote -v
+        => origin  https://github.com/nxde/travel-site.git (fetch)
+           origin  https://github.com/nxde/travel-site.git (push)
+    - Push our data to the above created repo on github: git push origin master
+    -Try repair the index.html file and push onto github:
+        + git status
+        + git add -A
+        + git status
+        + git commit -m "Add new meta key word"
+        + git push origin master
+        + Look at https://github.com/nxde/travel-site to see the commits
+        
+    
+Intro to Nodejs and NPM
+    - See version: node -v
+    - Create a new folder named node-experiment and in the command line window, move to it
+    - Create new file: touch test.js
+    - Move to the /travel-site folder
+    - Download jquery using node js: npm install jquery
+    - But remove the newly created /node_modules folder
+    - npm init
+    - Remove all lines in the package.json file but two lines of name and version
+    - npm install jquery --save
+    - npm install normalize.css --save
+    - Delete the /node_modules folder
+    - In command line: npm install. Everything will be regained based on package.json
+    - git status    (Only package.json added, git ignores /node_modules, see .gitignore file )
+    - git add -A
+    - git status
+    - git commit -m "Add package.json file"
+    - git push origin master
+    
+    
+Gulp
+    - Install Gulp globally
+        + npm install gulp-cli --global
+        + gulp
+            => [17:03:06] Local gulp not found in D:\Projects\modern workflow\sites
+               [17:03:06] Try running: npm install gulp
+        + See version: gulp -v
+    - Install gulp in project
+        + Move to the /travel-site folder
+        + npm install gulp --save-dev
+        + See the content of package.json
+        + gulp
+            => [17:09:48] No gulpfile found
+        + touch gulpfile.js     (create the gulp file)
+        + Now, edit the gulp file with default task, html task
+        + Run default task: gulp
+        + Run a specific task: gulp html
+        + npm install gulp-watch --save-dev
+        + Write the watch task
+        + Run the watch task: gulp watch
+Automation with gulp
+    - npm install gulp-postcss --save-dev
+    - npm install autoprefixer --save-dev
+    - npm install postcss-simple-vars --save-dev
+    - npm install postcss-nested --save-dev
+    
+CSS File Architecture
+    - Install the package which supports @import
+        + npm install postcss-import --save-dev
+    - Add postcss-import feature to gulpfile.js
+    
+    
+What is BEM - Block Element Modifier
+    
+Gulp Timeout
+    - Browsersync
+        + npm install browser-sync --save-dev
+        
+Mobile-first
+    - npm install postcss-mixins --save-dev
+    
+Git Branching
+    - Move to the /travel-site folder in the comman line
+    - git branch 
+        => * master         (this means that there is one branch named master)
+    - git status
+    - If we want to stage a specific file: git add app/index.html
+    - git status
+    - But we just stage all: git add -A
+    - git status
+    - Unstage a file: git reset app/index.html
+    - git status
+    - git add -A
+    - Now, commit:
+        git commit -m "Completed large hero block and intro content block"
+    - git status
+    - Create a new branch named count-to-ten
+        git branch count-to-ten
+    - git branch
+         => count-to-ten
+            * master            (*: current branch which we are working with)
+            
+    - git checkout count-to-ten
+        => Switched to branch 'count-to-ten'
+    
+    - Now do things with count-to-ten branch and complete it
+    - git checkout master
+    - git merge count-to-ten
+    - git push origin master
+    - Now create another branch
+        git branch count-to-fifteen
+    - git checkout count-to-fifteen
+    - Quick commit: git commit -am "Counted to 13"    
+    - Push count-to-fifteen to github
+        git push origin count-to-fifteen
+    - Complete the count-to-fifteen branch
+    - git commit -am "Completed the count to 15"
+    - git push origin count-to-fifteen
+    - Merge count-to-fifteen with master on github.com
+    - Pull the new master version on github to local machine:
+        git pull origin master
+    - git branch
+          =>  count-to-fifteen
+              count-to-ten
+            * master    
+    - Delete branches:
+        git branch -d count-to-ten
+        git branch -d count-to-fifteen
+    - Now work with the feature section, create a new branch and switch to it
+        git checkout -b our-features
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
