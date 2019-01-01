@@ -156,6 +156,10 @@ Git Branching
         git branch -d count-to-fifteen
     - Now work with the feature section, create a new branch and switch to it
         git checkout -b our-features
+    - Code the branch and commit it
+    - git checkout master
+    - git merge our-features --no-ff 
+        
         
     
     
